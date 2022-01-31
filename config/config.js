@@ -1,8 +1,6 @@
-import * as dotenv from "dotenv";
+require("dotenv").config();
 
-dotenv.config();
-
-export const config = {
+const config = {
   env: process.env.NODE_ENV || "dev",
   port: process.env.PORT || 3000,
   dbUser: process.env.DB_USER,
@@ -11,3 +9,5 @@ export const config = {
   dbName: process.env.DB_NAME,
   dbPort: process.env.DB_PORT,
 };
+
+module.exports = { config };
