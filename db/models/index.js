@@ -4,10 +4,7 @@ const {
 } = require("./ciclo-agricola.model");
 
 const setUpModels = (sequelize) => {
-  CicloAgricola.init(
-    CicloAgricolaScheme,
-    CicloAgricolaScheme.config(sequelize)
-  );
+  CicloAgricola.init(CicloAgricolaScheme, CicloAgricola.config(sequelize));
 };
 
-module.exports = setUpModels;
+module.exports = { setUpModels };
