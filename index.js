@@ -1,4 +1,5 @@
 const express = require("express");
+const routerApi = require("./routes");
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.get("/", (req, res) => {
     </h1>
   `);
 });
+
+routerApi(app);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
