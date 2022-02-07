@@ -1,6 +1,7 @@
 const express = require("express");
 const CicloAgricolaService = require("../services/ciclo-agricola.service");
 const validatorHandler = require("../middlewares/validator.handler");
+const DateUtility = require("../utils/date.util");
 const router = express.Router();
 
 const {
@@ -27,7 +28,25 @@ router.post(
   validatorHandler(createCicloAgricolaSchema, "body"),
   async (req, res, next) => {
     try {
-      res.json({ data: "Endpoint is working" });
+      const { body } = req;
+
+      const date = new DateUtility(body.fecha);
+
+      const cicloAgricola = {
+        semana: date.weekNumber,
+        dia: date.day,
+        mes: date.month,
+        anio: date.year,
+        ...body,
+      };
+
+      const newRecord = await service.create(cicloAgricola);
+
+      res.status(201).json({
+        ok: true,
+        message: "Ciclo agricola creado con exito",
+        data: newRecord,
+      });
     } catch (error) {
       next(error);
     }
