@@ -15,6 +15,7 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
 
   pgadmin:
+    restart: always
     image: dpage/pgadmin4
     environment:
       - PGADMIN_DEFAULT_EMAIL=jairalan1406@gmail.com
@@ -22,3 +23,9 @@ services:
 
     ports:
       - 5050:80
+
+    volumes:
+      - my_data:/var/lib/pgadmin
+
+volumes:
+  my_data:
