@@ -3,6 +3,7 @@ const CicloAgricolaService = require("../services/ciclo-agricola.service");
 const validatorHandler = require("../middlewares/validator.handler");
 const DateUtility = require("../utils/date.util");
 const router = express.Router();
+const response = require("../utils/response");
 
 const {
   createCicloAgricolaSchema,
@@ -13,7 +14,8 @@ const service = new CicloAgricolaService();
 router.get("/", async (req, res, next) => {
   try {
     const data = await service.find();
-    res.json({
+    response({
+      res,
       ok: true,
       message: "Listado de registros de ciclo agricola",
       data,
@@ -42,8 +44,10 @@ router.post(
 
       const newRecord = await service.create(cicloAgricola);
 
-      res.status(201).json({
+      response({
+        res,
         ok: true,
+        status: 201,
         message: "Ciclo agricola creado con exito",
         data: newRecord,
       });
