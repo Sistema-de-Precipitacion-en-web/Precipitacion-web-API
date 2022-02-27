@@ -6,6 +6,8 @@ const {
   boomErrorHandler,
 } = require("./middlewares/error.handler");
 
+const { config } = require("./config/config");
+
 const app = express();
 
 // Middlewares
@@ -26,6 +28,6 @@ app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(config.port, () => {
+  console.log(`Server is running on port ${config.port}`);
 });
