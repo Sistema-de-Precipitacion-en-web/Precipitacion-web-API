@@ -5,6 +5,7 @@ const {
   errorHandler,
   boomErrorHandler,
 } = require("./middlewares/error.handler");
+const cors = require("cors");
 
 const { config } = require("./config/config");
 
@@ -27,6 +28,11 @@ routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.listen(config.port, () => {
   console.log(`Server is running on port ${config.port}`);
