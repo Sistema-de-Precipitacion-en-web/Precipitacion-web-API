@@ -17,7 +17,12 @@ const EstadoSchema = {
 };
 
 class Estado extends Model {
-  static associate() {}
+  static associate(models) {
+    this.hasMany(models.Localidad, {
+      as: "localidades",
+      foreignKey: "estado",
+    });
+  }
 
   static config(sequelize) {
     return {

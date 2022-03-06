@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+const { ESTADO_TABLE } = require("./estado.model");
 
 const LOCALIDAD_TABLE = "localidad";
 
@@ -9,11 +10,11 @@ const LocalidadSchema = {
     type: DataTypes.STRING(9),
     field: "clave_de_la_localidad",
   },
-  claveEstado: {
-    allowNull: false,
-    type: DataTypes.STRING(2),
-    field: "clave_estado",
-  },
+  // claveEstado: {
+  //   allowNull: false,
+  //   type: DataTypes.STRING(2),
+  //   field: "clave_estado",
+  // },
   claveMunicipio: {
     allowNull: false,
     type: DataTypes.STRING(3),
@@ -24,11 +25,11 @@ const LocalidadSchema = {
     type: DataTypes.STRING(4),
     field: "clave_localidad",
   },
-  nombreEstado: {
-    allowNull: false,
-    type: DataTypes.STRING(8),
-    field: "nombre_estado",
-  },
+  // nombreEstado: {
+  //   allowNull: false,
+  //   type: DataTypes.STRING(8),
+  //   field: "nombre_estado",
+  // },
   nombreMunicipio: {
     allowNull: false,
     type: DataTypes.STRING(45),
@@ -49,10 +50,21 @@ const LocalidadSchema = {
     type: DataTypes.INTEGER,
     field: "longitud",
   },
+  estado: {
+    field: "clave_estado",
+    allowNull: false,
+    type: DataTypes.STRING(3),
+    references: {
+      model: ESTADO_TABLE,
+      key: "clave_de_estado",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
+  },
 };
 
 class Localidad extends Model {
-  static associate() {}
+  static associate(models) {}
 
   static config(sequelize) {
     return {

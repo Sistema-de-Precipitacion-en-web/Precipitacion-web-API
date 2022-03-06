@@ -11,6 +11,8 @@ const setUpModels = (sequelize) => {
   CicloAgricola.init(CicloAgricolaSchema, CicloAgricola.config(sequelize));
   Localidad.init(LocalidadSchema, Localidad.config(sequelize));
   Estado.init(EstadoSchema, Estado.config(sequelize));
+
+  Estado.associate(sequelize.models);
 };
 
 module.exports = { setUpModels };
