@@ -1,7 +1,7 @@
 "use strict";
 const {
   CICLO_AGRICOLA_TABLE,
-  CicloAgricolaScheme,
+  CicloAgricolaSchema,
 } = require("../models/ciclo-agricola.model");
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable(CICLO_AGRICOLA_TABLE, CicloAgricolaScheme);
+    await queryInterface.createTable(CICLO_AGRICOLA_TABLE, CicloAgricolaSchema);
   },
 
   async down(queryInterface, Sequelize) {

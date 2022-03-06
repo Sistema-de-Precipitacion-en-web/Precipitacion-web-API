@@ -18,9 +18,9 @@ const EstadoSchema = {
 
 class Estado extends Model {
   static associate(models) {
-    this.hasMany(models.Localidad, {
-      as: "localidades",
-      foreignKey: "estado",
+    this.hasMany(models.Municipio, {
+      as: "municipios",
+      foreignKey: "claveEstado",
     });
   }
 

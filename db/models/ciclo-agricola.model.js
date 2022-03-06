@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 
 const CICLO_AGRICOLA_TABLE = "ciclo_agricola";
 
-const CicloAgricolaScheme = {
+const CicloAgricolaSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -56,6 +56,6 @@ class CicloAgricola extends Model {
 
 module.exports = {
   CICLO_AGRICOLA_TABLE,
-  CicloAgricolaScheme,
+  CicloAgricolaSchema,
   CicloAgricola,
 };

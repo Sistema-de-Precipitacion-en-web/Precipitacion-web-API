@@ -1,9 +1,9 @@
 "use strict";
 
 const {
-  LOCALIDAD_TABLE,
-  LocalidadScheme,
-} = require("../models/localidad.model");
+  MUNICIPIO_TABLE,
+  MunicipioSchema,
+} = require("../models/municipios.model");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -13,7 +13,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable(LOCALIDAD_TABLE, LocalidadScheme);
+    await queryInterface.createTable(MUNICIPIO_TABLE, MunicipioSchema);
   },
 
   async down(queryInterface, Sequelize) {
@@ -23,6 +23,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable(LOCALIDAD_TABLE);
+    await queryInterface.dropTable(MUNICIPIO_TABLE);
   },
 };

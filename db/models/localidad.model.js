@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const { ESTADO_TABLE } = require("./estado.model");
-
+const { MUNICIPIO_TABLE } = require("./municipios.model");
 const LOCALIDAD_TABLE = "localidad";
 
 const LocalidadSchema = {
@@ -10,31 +9,13 @@ const LocalidadSchema = {
     type: DataTypes.STRING(9),
     field: "clave_de_la_localidad",
   },
-  // claveEstado: {
-  //   allowNull: false,
-  //   type: DataTypes.STRING(2),
-  //   field: "clave_estado",
-  // },
-  claveMunicipio: {
-    allowNull: false,
-    type: DataTypes.STRING(3),
-    field: "clave_municipio",
-  },
+
   claveLocalidad: {
     allowNull: false,
     type: DataTypes.STRING(4),
     field: "clave_localidad",
   },
-  // nombreEstado: {
-  //   allowNull: false,
-  //   type: DataTypes.STRING(8),
-  //   field: "nombre_estado",
-  // },
-  nombreMunicipio: {
-    allowNull: false,
-    type: DataTypes.STRING(45),
-    field: "nombre_municipio",
-  },
+
   nombreLocalidad: {
     allowNull: false,
     type: DataTypes.STRING(60),
@@ -42,21 +23,22 @@ const LocalidadSchema = {
   },
   latitud: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     field: "latitud",
   },
   longitud: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     field: "longitud",
   },
-  estado: {
-    field: "clave_estado",
+
+  claveMunicipio: {
+    field: "clave_municipio",
     allowNull: false,
     type: DataTypes.STRING(3),
     references: {
-      model: ESTADO_TABLE,
-      key: "clave_de_estado",
+      model: MUNICIPIO_TABLE,
+      key: "clave_municipio",
     },
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
