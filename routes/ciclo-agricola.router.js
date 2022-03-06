@@ -2,8 +2,8 @@ const express = require("express");
 const CicloAgricolaService = require("../services/ciclo-agricola.service");
 const validatorHandler = require("../middlewares/validator.handler");
 const DateUtility = require("../utils/date.util");
-const router = express.Router();
 const response = require("../utils/response");
+const router = express.Router();
 
 const {
   createCicloAgricolaSchema,

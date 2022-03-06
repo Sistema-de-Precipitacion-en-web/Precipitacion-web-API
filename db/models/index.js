@@ -1,13 +1,16 @@
 const {
   CicloAgricola,
-  CicloAgricolaScheme,
+  CicloAgricolaSchema,
 } = require("./ciclo-agricola.model");
 
-const { Localidad, LocalidadScheme } = require("./localidad.model");
+const { Localidad, LocalidadSchema } = require("./localidad.model");
+
+const { Estado, EstadoSchema } = require("./estado.model");
 
 const setUpModels = (sequelize) => {
-  CicloAgricola.init(CicloAgricolaScheme, CicloAgricola.config(sequelize));
-  Localidad.init(LocalidadScheme, Localidad.config(sequelize));
+  CicloAgricola.init(CicloAgricolaSchema, CicloAgricola.config(sequelize));
+  Localidad.init(LocalidadSchema, Localidad.config(sequelize));
+  Estado.init(EstadoSchema, Estado.config(sequelize));
 };
 
 module.exports = { setUpModels };

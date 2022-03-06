@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 
 const LOCALIDAD_TABLE = "localidad";
 
-const LocalidadScheme = {
+const LocalidadSchema = {
   claveDeLaLocalidad: {
     allowNull: false,
     primaryKey: true,
@@ -39,6 +39,16 @@ const LocalidadScheme = {
     type: DataTypes.STRING(60),
     field: "nombre_localidad",
   },
+  latitud: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: "latitud",
+  },
+  longitud: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: "longitud",
+  },
 };
 
 class Localidad extends Model {
@@ -56,6 +66,6 @@ class Localidad extends Model {
 
 module.exports = {
   LOCALIDAD_TABLE,
-  LocalidadScheme,
+  LocalidadSchema,
   Localidad,
 };

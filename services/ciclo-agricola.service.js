@@ -1,6 +1,6 @@
 const { models } = require("../lib/sequelize");
 
-class CicloAgricola {
+class CicloAgricolaService {
   constructor() {}
 
   async create(data) {
@@ -14,4 +14,4 @@ class CicloAgricola {
   }
 }
 
-module.exports = CicloAgricola;
+module.exports = CicloAgricolaService;
