@@ -46,7 +46,12 @@ const LocalidadSchema = {
 };
 
 class Localidad extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.hasMany(models.Cooperativa, {
+      as: "cooperativas",
+      foreignKey: "clave_localidad",
+    });
+  }
 
   static config(sequelize) {
     return {
