@@ -29,7 +29,12 @@ const CooperativaSchema = {
 };
 
 class Cooperativa extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.hasMany(models.Productor, {
+      as: "productores",
+      foreignKey: "clave_cooperativa",
+    });
+  }
 
   static config(sequelize) {
     return {
