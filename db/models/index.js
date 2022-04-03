@@ -9,6 +9,7 @@ const { Estado, EstadoSchema } = require("./estado.model");
 const { Municipio, MunicipioSchema } = require("./municipios.model");
 const { Cooperativa, CooperativaSchema } = require("./cooperativa.model");
 const { Productor, ProductorSchema } = require("./productores.model");
+const { Estaciones, EstacionesSchema } = require("./estaciones.model");
 
 const setUpModels = (sequelize) => {
   CicloAgricola.init(CicloAgricolaSchema, CicloAgricola.config(sequelize));
@@ -17,6 +18,7 @@ const setUpModels = (sequelize) => {
   Municipio.init(MunicipioSchema, Municipio.config(sequelize));
   Cooperativa.init(CooperativaSchema, Cooperativa.config(sequelize));
   Productor.init(ProductorSchema, Productor.config(sequelize));
+  Estaciones.init(EstacionesSchema, Estaciones.config(sequelize));
 
   Estado.associate(sequelize.models);
   Municipio.associate(sequelize.models);

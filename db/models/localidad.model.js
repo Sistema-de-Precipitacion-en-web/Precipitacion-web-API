@@ -51,6 +51,10 @@ class Localidad extends Model {
       as: "cooperativas",
       foreignKey: "clave_localidad",
     });
+    this.hasMany(models.Estaciones, {
+      as: "estaciones",
+      foreignKey: "clave_localidad",
+    });
   }
 
   static config(sequelize) {
