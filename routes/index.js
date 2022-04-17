@@ -6,6 +6,7 @@ const municipiosRouter = require("./municipios.router");
 const cooperativaRouter = require("./cooperativas.router");
 const productoresRouter = require("./productores.router");
 const estacionesRouter = require("./estaciones.router");
+const parcelasRouter = require("./parelas.router");
 
 function routerApi(app) {
   const router = express.Router();
@@ -18,6 +19,7 @@ function routerApi(app) {
   router.use("/cooperativas", cooperativaRouter);
   router.use("/productores", productoresRouter);
   router.use("/estaciones", estacionesRouter);
+  router.use("/parcelas", parcelasRouter);
 }
 
 module.exports = routerApi;
