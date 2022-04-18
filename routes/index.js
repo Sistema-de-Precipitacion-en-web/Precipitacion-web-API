@@ -7,6 +7,7 @@ const cooperativaRouter = require("./cooperativas.router");
 const productoresRouter = require("./productores.router");
 const estacionesRouter = require("./estaciones.router");
 const parcelasRouter = require("./parelas.router");
+const accionesAguaRouter = require("./acciones-agua.router");
 
 function routerApi(app) {
   const router = express.Router();
@@ -20,6 +21,7 @@ function routerApi(app) {
   router.use("/productores", productoresRouter);
   router.use("/estaciones", estacionesRouter);
   router.use("/parcelas", parcelasRouter);
+  router.use("/acciones-agua", accionesAguaRouter);
 }
 
 module.exports = routerApi;
