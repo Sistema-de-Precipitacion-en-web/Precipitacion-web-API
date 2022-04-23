@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const precipitaciones = service.find();
+    const precipitaciones = await service.find();
 
     response({
       res,
