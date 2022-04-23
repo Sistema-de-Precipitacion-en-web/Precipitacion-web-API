@@ -11,6 +11,7 @@ const accionesAguaRouter = require("./acciones-agua.router");
 const precipitacionesRouter = require("./precipitaciones.router");
 const riegoAuxilioRouter = require("./riego-auxilio.router");
 const produccionesRouter = require("./produccion.router");
+const enosRouter = require("./enos.router");
 
 function routerApi(app) {
   const router = express.Router();
@@ -28,6 +29,7 @@ function routerApi(app) {
   router.use("/precipitaciones", precipitacionesRouter);
   router.use("/riego-auxilio", riegoAuxilioRouter);
   router.use("/producciones", produccionesRouter);
+  router.use("/enos", enosRouter);
 }
 
 module.exports = routerApi;

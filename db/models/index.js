@@ -18,6 +18,7 @@ const {
 } = require("./precipitacion.model");
 const { RiegoAuxilio, RiegoAuxilioSchema } = require("./riego-auxilio.model");
 const { Produccion, ProduccionSchema } = require("./produccion.model");
+const { Enos, EnosSchema } = require("./enos.model");
 
 const setUpModels = (sequelize) => {
   CicloAgricola.init(CicloAgricolaSchema, CicloAgricola.config(sequelize));
@@ -32,6 +33,7 @@ const setUpModels = (sequelize) => {
   Precipitacion.init(PrecipitacionesSchema, Precipitacion.config(sequelize));
   RiegoAuxilio.init(RiegoAuxilioSchema, RiegoAuxilio.config(sequelize));
   Produccion.init(ProduccionSchema, Produccion.config(sequelize));
+  Enos.init(EnosSchema, Enos.config(sequelize));
 
   Estado.associate(sequelize.models);
   Municipio.associate(sequelize.models);
@@ -42,6 +44,7 @@ const setUpModels = (sequelize) => {
   Precipitacion.associate(sequelize.models);
   RiegoAuxilio.associate(sequelize.models);
   Produccion.associate(sequelize.models);
+  Enos.associate(sequelize.models);
 };
 
 module.exports = { setUpModels };
