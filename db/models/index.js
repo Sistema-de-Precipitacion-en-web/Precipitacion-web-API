@@ -12,6 +12,10 @@ const { Productor, ProductorSchema } = require("./productores.model");
 const { Estaciones, EstacionesSchema } = require("./estaciones.model");
 const { Parcelas, ParcelasSchema } = require("./parcelas.model");
 const { AccionesAgua, AccionesAguaSchema } = require("./acciones-agua.model");
+const {
+  Precipitacion,
+  PrecipitacionesSchema,
+} = require("./precipitacion.model");
 
 const setUpModels = (sequelize) => {
   CicloAgricola.init(CicloAgricolaSchema, CicloAgricola.config(sequelize));
@@ -23,6 +27,7 @@ const setUpModels = (sequelize) => {
   Estaciones.init(EstacionesSchema, Estaciones.config(sequelize));
   Parcelas.init(ParcelasSchema, Parcelas.config(sequelize));
   AccionesAgua.init(AccionesAguaSchema, AccionesAgua.config(sequelize));
+  Precipitacion.init(PrecipitacionesSchema, Precipitacion.config(sequelize));
 
   Estado.associate(sequelize.models);
   Municipio.associate(sequelize.models);
@@ -30,6 +35,7 @@ const setUpModels = (sequelize) => {
   Cooperativa.associate(sequelize.models);
   Parcelas.associate(sequelize.models);
   AccionesAgua.associate(sequelize.models);
+  Precipitacion.associate(sequelize.models);
 };
 
 module.exports = { setUpModels };
