@@ -10,6 +10,7 @@ const parcelasRouter = require("./parelas.router");
 const accionesAguaRouter = require("./acciones-agua.router");
 const precipitacionesRouter = require("./precipitaciones.router");
 const riegoAuxilioRouter = require("./riego-auxilio.router");
+const produccionesRouter = require("./produccion.router");
 
 function routerApi(app) {
   const router = express.Router();
@@ -26,6 +27,7 @@ function routerApi(app) {
   router.use("/acciones-agua", accionesAguaRouter);
   router.use("/precipitaciones", precipitacionesRouter);
   router.use("/riego-auxilio", riegoAuxilioRouter);
+  router.use("/producciones", produccionesRouter);
 }
 
 module.exports = routerApi;
