@@ -41,4 +41,22 @@ router.post(
     }
   }
 );
+
+router.get("/:claveEstacion/precipitaciones", async (req, res) => {
+  const { claveEstacion } = req.params;
+
+  try {
+    const precipitaciones = await service.findPrecipitaciones(claveEstacion);
+
+    response({
+      res,
+      ok: true,
+      message: "Listado de precipitaciones",
+      data: precipitaciones,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

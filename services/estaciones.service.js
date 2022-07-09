@@ -10,6 +10,15 @@ class EstacionesService {
     const estaciones = await models.Estaciones.findAll();
     return estaciones;
   }
+
+  async findPrecipitaciones(clave_estacion) {
+    const precipitaciones = await models.Precipitaciones.findAll({
+      where: {
+        clave_estacion,
+      },
+    });
+    return precipitaciones;
+  }
 }
 
 module.exports = EstacionesService;
