@@ -14,6 +14,11 @@ const app = express();
 // Middlewares
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 // Main route
 app.get("/", (req, res) => {
   res.send(`
@@ -28,11 +33,6 @@ routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
-app.use(
-  cors({
-    origin: "*",
-  })
-);
 
 app.listen(config.port, () => {
   console.log(`Server is running on port ${config.port}`);
